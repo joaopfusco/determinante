@@ -43,7 +43,6 @@ function gerar_matriz() {
             const celula = document.createElement("td");
             const input = document.createElement("input");
             input.type = "number";
-            input.type = 0;
 
             celula.appendChild(input);
             linha.appendChild(celula);
