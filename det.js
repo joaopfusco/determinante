@@ -73,5 +73,6 @@ function calcular() {
         const det = prodDiagonalPrincipal(matriz);
         console.log(matriz)
         console.log(det);
+        window.alert(det);
     }
 }
