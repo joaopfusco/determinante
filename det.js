@@ -42,7 +42,7 @@ function gerar_matriz() {
         for (let j = 0; j < ordem; j++) {
             const celula = document.createElement("td");
             const input = document.createElement("input");
-            input.type = "number";
+            //input.type = "number";
 
             celula.appendChild(input);
             linha.appendChild(celula);
