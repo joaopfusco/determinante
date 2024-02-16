@@ -27,7 +27,7 @@ for p in matriz_triangular:
     coluna = coluna_triangular
     valor = matriz[linha, coluna]
 
-    k = -1 * (valor_triangular / valor)
+    k = -1 * (if valor != 0 valor_triangular / valor else valor_triangular)
 
     matriz[linha_triangular] = matriz[linha_triangular] + (k * matriz[linha])
 
