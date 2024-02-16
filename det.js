@@ -69,7 +69,7 @@ function calcular() {
             matriz[linhaTriangular] = matriz[linhaTriangular].map((el, index) => el + k * matriz[linha][index]);
         }
 
-        const det = round(prodDiagonalPrincipal(matriz), 2);
+        const det = Math.round(prodDiagonalPrincipal(matriz), 2);
         console.log(matriz)
         console.log(det);
         window.alert(det);
