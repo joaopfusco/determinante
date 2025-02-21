@@ -1,6 +1,7 @@
 function prodDiagonalPrincipal(matriz) {
     const diag = matriz.map((row, i) => row[i]);
-    return diag.reduce((acc, val) => acc * val, 1);
+    const value = diag.reduce((acc, val) => acc * val, 1);
+    return value == 0 ? Math.abs(value) : value;
 }
 
 function valoresMatrizTriangular(matriz) {
@@ -54,6 +55,8 @@ function gerar_matriz() {
 
 function calcular() {
     const matriz = obter_matriz();
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "";
     if (matriz.length != 0) {    
         const matrizTriangular = valoresMatrizTriangular(matriz);
         for (const pos of matrizTriangular) {
@@ -67,11 +70,26 @@ function calcular() {
             const k = -1 * (valor != 0 ? valorTriangular / valor : valorTriangular);
 
             matriz[linhaTriangular] = matriz[linhaTriangular].map((el, index) => el + k * matriz[linha][index]);
+
+            const message = `L${linhaTriangular + 1} -> L${linhaTriangular + 1} + (${k.toFixed(2)}) * L${linha + 1}:`;
+            outputDiv.innerHTML += `<p>${message}</p>`;
+            outputDiv.innerHTML += formatarMatriz(matriz);
         }
 
         const det = Math.round(prodDiagonalPrincipal(matriz), 2);
-        console.log(matriz)
-        console.log(det);
         window.alert(det);
     }
+}
+
+function formatarMatriz(matriz) {
+    let html = "<table>";
+    matriz.forEach(row => {
+        html += "<tr>";
+        row.forEach(cell => {
+            html += `<td>${cell.toFixed(2)}</td>`;
+        });
+        html += "</tr>";
+    });
+    html += "</table>";
+    return html;
 }
